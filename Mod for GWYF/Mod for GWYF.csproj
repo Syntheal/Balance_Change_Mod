@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CosmeticEquipPatch.cs" />
+    <Compile Include="SpawnWakeFixPatch.cs" />
     <Compile Include="MaxPlayersPatch.cs" />
     <Compile Include="Patch_SetTimer.cs" />
     <Compile Include="Patch_GetQuota.cs" />
@@ -80,6 +81,10 @@
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>D:\SteamLibrary\steamapps\common\Gamble With Your Friends\Gamble With Your Friends_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\SteamLibrary\steamapps\common\Gamble With Your Friends\Gamble With Your Friends_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

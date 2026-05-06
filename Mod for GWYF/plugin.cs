@@ -5,7 +5,7 @@ using FMODUnity;
 using HarmonyLib;
 using UnityEngine;
 
-[BepInPlugin("fixes.gamble", "Gamble Fixer", "1.0.0")]
+[BepInPlugin("fixes.gamble", "Gamble Fixer", "0.1.0")]
 public class FixingPlguin    : BaseUnityPlugin
 {
     public static ManualLogSource Log;
