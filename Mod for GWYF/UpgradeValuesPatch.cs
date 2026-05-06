@@ -36,7 +36,7 @@ class Patch_UpgradeValues
                 break;
 
             case PlayerUpgradeType.BonusDraw:
-                baseValue = 0.25f;
+                baseValue = 0.15f;
                 minimumValue = 0.075f;
                 break;
 
