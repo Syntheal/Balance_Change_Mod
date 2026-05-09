@@ -1,17 +1,33 @@
 ﻿using HarmonyLib;
-using UnityEngine;
+using Mirror;
 
-[HarmonyPatch(typeof(GoOnlineClient), "CreateLobby")]
-class Patch_CreateLobby
+namespace GambleMaxPlayers
 {
-    static void Prefix(GoOnlineClient __instance)
+    [HarmonyPatch(typeof(GoOnlineClient), "CreateLobby")]
+    internal static class Patch_CreateLobby
     {
-        var field = AccessTools.Field(typeof(GoOnlineClient), "lobbySettings");
-        var settings = field.GetValue(__instance) as LobbySettings;
-
-        if (settings != null)
+        static void Prefix(GoOnlineClient __instance)
         {
-            settings.maxPlayers = UnityEngine.Random.Range(6, 100000);
+            var field = AccessTools.Field(
+                typeof(GoOnlineClient),
+                "lobbySettings"
+            );
+
+            var settings = field.GetValue(__instance) as LobbySettings;
+
+            if (settings != null)
+            {
+                settings.maxPlayers = 40;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(NetworkServer), nameof(NetworkServer.Listen))]
+    internal static class NetworkServerListenPatch
+    {
+        static void Prefix(ref int maxConns)
+        {
+            maxConns = 40;
         }
     }
 }
