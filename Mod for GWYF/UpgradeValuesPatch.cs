@@ -8,6 +8,9 @@ class Patch_UpgradeValues
 {
     static void Prefix(Upgrade __instance)
     {
+        if (!FixingPlguin.shareUpgrades.Value)
+            return;
+
         var typeField =
             AccessTools.Field(typeof(Upgrade), "upgradeType");
 

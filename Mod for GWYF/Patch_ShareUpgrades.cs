@@ -16,6 +16,9 @@ class Patch_ShareUpgrades
         PlayerUpgradeType type,
         float amount)
     {
+        if (!FixingPlguin.shareUpgrades.Value)
+            return true;
+
         if (isProcessing)
             return false;
 
@@ -37,7 +40,7 @@ class Patch_ShareUpgrades
             {
                 jackpot = Random.Range(0f, 1f) < 0.004f;
 
-                if (jackpot)
+                if (jackpot && FixingPlguin.empoweredUpgrades.Value)
                 {
                     baseValue = oldValue + amount * 10f;
 

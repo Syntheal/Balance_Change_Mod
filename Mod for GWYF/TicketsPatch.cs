@@ -5,6 +5,9 @@ class Patch_QuotaReward
 {
     static bool Prefix(int floor, long quota, long money, ref int __result)
     {
+        if (!FixingPlguin.ticketSetting.Value)
+            return true;
+
         if (quota <= 0 || money <= quota)
         {
             __result = 0;

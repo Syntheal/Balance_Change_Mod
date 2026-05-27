@@ -15,7 +15,7 @@ namespace GambleMaxPlayers
 
             var settings = field.GetValue(__instance) as LobbySettings;
 
-            if (settings != null)
+            if (settings != null && FixingPlguin.maxPlayers.Value)
             {
                 settings.maxPlayers = 40;
             }

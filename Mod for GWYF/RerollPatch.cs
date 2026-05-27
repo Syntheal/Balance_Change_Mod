@@ -12,6 +12,9 @@ class Patch_RerollAllItemStamps
 {
     static void Prefix(ItemStampManager __instance)
     {
+        if (!FixingPlguin.rerollSetting.Value)
+            return;
+
         StampRuntimeState.IsRerolling = true;
 
         var preAssigned = AccessTools
@@ -33,6 +36,9 @@ class Patch_DestroyAllSpawnedInstances
 {
     static void Postfix(ItemStampManager __instance)
     {
+        if (!FixingPlguin.rerollSetting.Value)
+            return;
+
         if (!StampRuntimeState.IsRerolling)
             return;
 
@@ -49,6 +55,9 @@ class Patch_RetrieveAndRespawnAllItemStamps
 {
     static void Prefix(ItemStampManager __instance)
     {
+        if (!FixingPlguin.rerollSetting.Value)
+            return;
+
         var preAssigned = AccessTools
             .Field(typeof(ItemStampManager), "_preAssignedItems")
             .GetValue(__instance) as Dictionary<string, GameObject>;

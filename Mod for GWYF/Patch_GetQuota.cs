@@ -11,6 +11,9 @@ public class Patch_GetQuota
         long currentMoney,
         ref long __result)
     {
+        if (!FixingPlguin.quotaSetting.Value)
+            return true;
+
         if (index == 0)
         {
             __result = 1200;
@@ -29,7 +32,7 @@ public class Patch_GetQuota
 
         float multiplier = Mathf.Clamp(2.5f + (0.5f * daysPassed),2.0f,7.5f);
 
-        __result = (long)(previousQuota * multiplier);
+        __result = (long)(previousQuota * multiplier * FixingPlguin.scaler.Value);
 
         return false;
     }

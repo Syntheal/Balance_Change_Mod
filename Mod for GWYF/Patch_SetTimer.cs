@@ -10,7 +10,7 @@ public class Patch_GameManager_OnAwake
 
         if (gsField.GetValue(__instance) is GameSettings gs)
         {
-            gs.dayDuration = 450;
+            gs.dayDuration = FixingPlguin.timerSetting.Value;
         }
     }
 }
@@ -20,7 +20,7 @@ public class Patch_OnTimerChanged
 {
     static bool Prefix(float oldValue, float newValue)
     {
-        NetworkSingleton<GameUI>.Instance.SetTimerText(450f - newValue);
+        NetworkSingleton<GameUI>.Instance.SetTimerText(FixingPlguin.timerSetting.Value - newValue);
         return false;
     }
 }
